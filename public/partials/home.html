@@ -15,7 +15,7 @@
       <option value="dark">Dark</option>
 
     </select>&nbsp;Search By Name: <input type="text" ng-model="search"></td>
-    <td><a href="/cart"><button style="float:right;">Checkout&nbsp;|&nbsp;Bag:
+    <td><a href="/cart"><button style="float:right;">Checkout&nbsp;|&nbsp;Cart:
       <span ng-show="shoppingCart.length > 0">&nbsp;{{shoppingCart.length}}</span>
       <ng-pluralize count="shoppingCart.length" when="{'0': 'Empty!'}"></ng-pluralize></button></td>
       </a>
@@ -26,11 +26,11 @@
   <table class="homeTable" id="mainTable">
     <tr>
       <td>Tea</td>
-      <td>Information &nbsp;Sort By<select ng-model="cost">
+      <td>Information &nbsp;<p style="float:right;">Sort By Price&nbsp;:<select ng-model="cost">
         <option value=""></option>
         <option value="-price">Highest Price</option>
         <option value="price">Lowest Price</option>
-      </select></td>
+      </select></p></td>
     </tr>
   </table>
 

@@ -75,7 +75,15 @@ td{
 width: 100px:
 }
 
-form[novalidate] input{
+
+/* li{
+
+ -webkit-transition: all 2.5s ease-in-out;
+ -moz-transition: all 2.5s ease-in-out;
+ transition: all 2.5s ease-in-out;
+}
+ */
+/* form[novalidate] input{
   border-left-width: 8px;
   border-color: #3498db;
   border-style: solid;
@@ -121,8 +129,8 @@ input.ng-valid.ng-dirty{
   opacity: 0;
 }
 
-/* ANIMATIONS (FROM ANIMATE.CSS) ======================== */
-/* flip in */
+ANIMATIONS (FROM ANIMATE.CSS) ========================
+flip in
 @keyframes flipInX {
   0% {
     transform: perspective(400px) rotate3d(1, 0, 0, 90deg);
@@ -158,7 +166,7 @@ input.ng-valid.ng-dirty{
   }
 }
 
-/* light speed out */
+light speed out
 @keyframes lightSpeedOut {
   0% {
     opacity: 1;
@@ -183,3 +191,4 @@ input.ng-valid.ng-dirty{
     opacity: 0;
   }
 }
+ */
