@@ -1,0 +1,35 @@
+<h4 id="totalH4" style="text-align:center;">Total: {{shoppingCart | orderTotal | currency}}</h4>
+<table ng-repeat="item in shoppingCart" class="homeTable" id="cartTable">
+  <td>
+    <img ng-src="{{item.imageUrl}}"></img>
+  </td>
+  <td>
+    <h3 style="display:inline;">{{item.name}}</h3>
+    &nbsp;
+    <br>
+    <b>Price:</b>{{item.price | currency}}
+    <br>
+    <b>Caffeine Scale:</b>{{item.caffeineScale}}
+    <br>
+    <b>Ingredients:</b>{{item.ingredients}}
+    <br>
+    <b>Rating:</b>{{item.rating}}
+    <br>
+    <b>In Stock?</b>{{item.inStock}}
+    <br>
+    <b>Categories:</b><li ng-repeat="i in item.categories">{{i}}</li>
+
+
+  </td>
+  <td ng-hide="hideQuantity">Quantity: {{item.quantity}}</td>
+  <td ng-show="showEdit">
+    Quantity:
+    <input type="number" ng-model="item.quantity" min="1">
+  </td>
+
+  <td>
+    <button ng-init="hideEdit = true" ng-show="hideEdit" ng-click="hideEdit = !hideEdit; showSave = true; hideQuantity = true; showEdit = true;">Edit</button>
+    <button ng-show="showSave" ng-click="hideEdit = true; showSave = false; hideQuantity = false; showEdit = false;">Save</button>
+    <button ng-click="removeItem(item)">Remove</button>
+  </td>
+</table>
