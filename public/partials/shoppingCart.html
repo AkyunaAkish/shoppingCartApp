@@ -1,5 +1,5 @@
 <h4 id="totalH4" style="text-align:center;">Total: {{shoppingCart | orderTotal | currency}}</h4>
-<table ng-repeat="item in shoppingCart" class="homeTable" id="cartTable">
+<table ng-repeat="item in shoppingCart track by $index" class="homeTable" id="cartTable">
   <td>
     <img ng-src="{{item.imageUrl}}"></img>
   </td>
@@ -7,15 +7,15 @@
     <h3 style="display:inline;">{{item.name}}</h3>
     &nbsp;
     <br>
-    <b>Price:</b>{{item.price | currency}}
+    <b>Price:</b>&nbsp;{{item.price | currency}}
     <br>
-    <b>Caffeine Scale:</b>{{item.caffeineScale}}
+    <b>Caffeine Scale:</b>&nbsp;{{item.caffeineScale}}
     <br>
-    <b>Ingredients:</b>{{item.ingredients}}
+    <b>Ingredients:</b>&nbsp;{{item.ingredients}}
     <br>
-    <b>Rating:</b>{{item.rating}}
+    <b>Rating:</b>&nbsp;{{item.rating}}
     <br>
-    <b>In Stock?</b>{{item.inStock}}
+    <b>In Stock?</b>&nbsp;<p ng-show="item.inStock = true">Yes</p><p ng-show="item.inStock = false">No</p>
     <br>
     <b>Categories:</b><li ng-repeat="i in item.categories">{{i}}</li>
 
@@ -24,12 +24,12 @@
   <td ng-hide="hideQuantity">Quantity: {{item.quantity}}</td>
   <td ng-show="showEdit">
     Quantity:
-    <input type="number" ng-model="item.quantity" min="1">
+    <input type="number" ng-model="item.quantity" min="1" size="10" class="numberInput">
   </td>
 
   <td>
-    <button ng-init="hideEdit = true" ng-show="hideEdit" ng-click="hideEdit = !hideEdit; showSave = true; hideQuantity = true; showEdit = true;">Edit</button>
-    <button ng-show="showSave" ng-click="hideEdit = true; showSave = false; hideQuantity = false; showEdit = false;">Save</button>
+    &nbsp;<button ng-init="hideEdit = true" ng-show="hideEdit" ng-click="hideEdit = !hideEdit; showSave = true; hideQuantity = true; showEdit = true;">Edit</button>
+    &nbsp;<button ng-show="showSave" ng-click="hideEdit = true; showSave = false; hideQuantity = false; showEdit = false;">Save</button>
     <button ng-click="removeItem(item)">Remove</button>
   </td>
 </table>

@@ -1,4 +1,4 @@
-<!-- {{items}} -->
+
 <table class="homeTable" id="topTable">
   <tr>
     <td>Search By Category: <select ng-model="category">
@@ -41,7 +41,7 @@
     <td>
       <h3 style="display:inline;">{{item.name}}</h3>
       <h4 style="display:inline; float: right;" class="itemH4">Quantity:
-        <input type="number" ng-model="quantity" ng-init="quantity = 1" min="1">
+        <input type="number" ng-model="quantity" ng-init="quantity = 1" min="1" class="numberInput">
     <!--     <select name="" id="" ng-model="quantity" ng-init="quantity = '1'">
       <option value="1">1</option>
       <option value="2">2</option>
@@ -51,15 +51,15 @@
     </select> -->&nbsp;
         <button ng-click="addToCart(item,quantity)">Add To Bag</button>&nbsp;</h4>
         <br>
-        <b>Price:</b>{{item.price | currency}}
+        <b>Price:</b>&nbsp;{{item.price | currency}}
         <br>
-        <b>Caffeine Scale:</b>{{item.caffeineScale}}
+        <b>Caffeine Scale:</b>&nbsp;{{item.caffeineScale}}
         <br>
-        <b>Ingredients:</b>{{item.ingredients}}
+        <b>Ingredients:</b>&nbsp;{{item.ingredients}}
         <br>
-        <b>Rating:</b>{{item.rating}}
+        <b>Rating:</b>&nbsp;{{item.rating}}
         <br>
-        <b>In Stock?</b>{{item.inStock}}
+        <b>In Stock?</b>&nbsp;{{ item.inStock ? 'Yes' : 'No'}}
         <br>
         <b>Categories:</b><li ng-repeat="i in item.categories">{{i}}</li>
 

@@ -58,3 +58,9 @@ td {
 
 #totalH4 {
   color: #ee7d58; }
+
+#cartTable button {
+  background: #edb96e;
+  border: none;
+  color: white;
+  border-radius: 7%; }
