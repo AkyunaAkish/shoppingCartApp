@@ -17,6 +17,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(__dirname + '/public'));
 
+
 // app.use(/^\/(?!.*items)$/,function(req, res) {
 app.use(function(req, res) {
   res.sendFile(__dirname + '/index.html');

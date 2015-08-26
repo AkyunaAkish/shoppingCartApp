@@ -18,51 +18,45 @@
     <td><a href="/cart"><button style="float:right;">Checkout&nbsp;|&nbsp;Cart:
       <span ng-show="shoppingCart.length > 0">&nbsp;{{shoppingCart.length}}</span>
       <ng-pluralize count="shoppingCart.length" when="{'0': 'Empty!'}"></ng-pluralize></button></td>
-      </a>
-    </tr>
-  </table>
+    </a>
+  </tr>
+</table>
 
 
-  <table class="homeTable" id="mainTable">
-    <tr>
-      <td>Tea</td>
-      <td>Information &nbsp;<p style="float:right;">Sort By Price&nbsp;:<select ng-model="cost">
-        <option value=""></option>
-        <option value="-price">Highest Price</option>
-        <option value="price">Lowest Price</option>
-      </select></p></td>
-    </tr>
-  </table>
+<table class="homeTable" id="mainTable">
+  <tr>
+    <td>Tea</td>
+    <td>Information &nbsp;<p style="float:right;">Sort By Price&nbsp;:<select ng-model="cost">
+      <option value=""></option>
+      <option value="-price">Highest Price</option>
+      <option value="price">Lowest Price</option>
+    </select></p></td>
+  </tr>
+</table>
 
-  <table ng-repeat="item in items | filter:{name: search} | filter:{categories: category} | orderBy: cost" class="homeTable">
-    <td>
-      <img ng-src="{{item.imageUrl}}"></img>
+<table ng-repeat="item in items | filter:{name: search} | filter:{categories: category} | orderBy: cost" class="homeTable">
+  <td>
+    <img ng-src="{{item.imageUrl}}"></img>
+  </td>
+  <td>
+    <h3 style="display:inline;">{{item.name}}</h3>
+    <h4 style="display:inline; float: right;" class="itemH4">Quantity:
+      <input type="number" ng-model="quantity" ng-init="quantity = 1" min="1" class="numberInput">
+      &nbsp;
+      <button ng-click="addToCart(item,quantity)">Add To Bag</button>&nbsp;</h4>
+      <br>
+      <b>Price:</b>&nbsp;{{item.price | currency}}
+      <br>
+      <b>Caffeine Scale:</b>&nbsp;{{item.caffeineScale}}
+      <br>
+      <b>Ingredients:</b>&nbsp;{{item.ingredients}}
+      <br>
+      <b>Rating:</b>&nbsp;{{item.rating}}
+      <br>
+      <b>In Stock?</b>&nbsp;{{ item.inStock ? 'Yes' : 'No'}}
+      <br>
+      <b>Categories:</b><li ng-repeat="i in item.categories">{{i}}</li>
+
+
     </td>
-    <td>
-      <h3 style="display:inline;">{{item.name}}</h3>
-      <h4 style="display:inline; float: right;" class="itemH4">Quantity:
-        <input type="number" ng-model="quantity" ng-init="quantity = 1" min="1" class="numberInput">
-    <!--     <select name="" id="" ng-model="quantity" ng-init="quantity = '1'">
-      <option value="1">1</option>
-      <option value="2">2</option>
-      <option value="3">3</option>
-      <option value="4">4</option>
-      <option value="5">5</option>
-    </select> -->&nbsp;
-        <button ng-click="addToCart(item,quantity)">Add To Bag</button>&nbsp;</h4>
-        <br>
-        <b>Price:</b>&nbsp;{{item.price | currency}}
-        <br>
-        <b>Caffeine Scale:</b>&nbsp;{{item.caffeineScale}}
-        <br>
-        <b>Ingredients:</b>&nbsp;{{item.ingredients}}
-        <br>
-        <b>Rating:</b>&nbsp;{{item.rating}}
-        <br>
-        <b>In Stock?</b>&nbsp;{{ item.inStock ? 'Yes' : 'No'}}
-        <br>
-        <b>Categories:</b><li ng-repeat="i in item.categories">{{i}}</li>
-
-
-      </td>
-    </table>
+  </table>
