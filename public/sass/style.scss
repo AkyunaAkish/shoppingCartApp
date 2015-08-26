@@ -72,7 +72,12 @@ td{
   border-radius: 7%;
 }
 .numberInput{
-width: 100px:
+width: 100px;
+}
+
+img, embed, object, video{
+max-width: 100%;
+height: auto;
 }
 
 
